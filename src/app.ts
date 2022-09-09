@@ -8,8 +8,8 @@ import * as dotenv from "dotenv";
 import * as middlewares from "./middlewares";
 import api from "./api/index";
 
-colors.enable();
 dotenv.config();
+colors.enable();
 
 const app = express();
 

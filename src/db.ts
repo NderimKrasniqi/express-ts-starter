@@ -1,15 +1,15 @@
 import * as mongoDB from "mongodb";
 
 export async function connectToDatabase() {
-  if (process.env.MONGO_URI !== undefined) {
-    const client = new mongoDB.MongoClient(process.env.MONGO_URI);
+  if (!process.env.MONGO_URI)
+    throw new Error("MongoDb connectiong string is missing!");
 
-    await client.connect();
+  const client = new mongoDB.MongoClient(process.env.MONGO_URI);
+  await client.connect();
 
-    const db = client.db("expressTS");
+  const db = client.db("ExpressTS");
 
-    console.log(
-      `Successfully connected to database:${db.databaseName}`.blue.underline
-    );
-  }
+  console.log(
+    `Successfully connected to database:${db.databaseName}`.blue.underline
+  );
 }
