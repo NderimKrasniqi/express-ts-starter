@@ -1,12 +1,12 @@
-import express from "express";
+import express from 'express';
 
-import MessageResponse from "../interfaces/MessageRespons";
+import MessageResponse from '../interfaces/MessageResponse';
 
 const router = express.Router();
 
-router.get<{}, MessageResponse>("/healthcheck", (req, res) => {
+router.get<{}, MessageResponse>('/healthcheck', (req, res) => {
   res.json({
-    message: "We Are Good To Go :D",
+    message: 'We Are Good To Go :D',
   });
 });
 
