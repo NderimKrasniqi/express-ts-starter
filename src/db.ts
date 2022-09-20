@@ -1,15 +1,8 @@
-import * as mongoDB from 'mongodb';
+import mongoose from 'mongoose';
 
-export default async function connectToDatabase() {
-  if (!process.env.MONGO_URI)
-    throw new Error('MongoDb connection string is missing!');
+const connectDB = async (url: string) => {
+  const client = await mongoose.connect(url);
+  console.log(`MongoDB Connected:${client.connection.host}`.cyan.underline);
+};
 
-  const client = new mongoDB.MongoClient(process.env.MONGO_URI);
-  await client.connect();
-
-  const db = client.db('ExpressTS');
-
-  console.log(
-    `Successfully connected to database:${db.databaseName}`.blue.underline,
-  );
-}
+export default connectDB;
