@@ -1,13 +1,9 @@
 import express from 'express';
 
-import MessageResponse from '../interfaces/MessageResponse';
+import auth from './auth/auth.routes';
 
 const router = express.Router();
 
-router.get<{}, MessageResponse>('/healthcheck', (req, res) => {
-  res.json({
-    message: 'We Are Good To Go :D',
-  });
-});
+router.use('/auth', auth);
 
 export default router;

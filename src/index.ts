@@ -1,5 +1,5 @@
 import app from './app';
-import connectDB from './db';
+import connectDB from './utils/db';
 
 const PORT = process.env.PORT || 3000;
 
@@ -9,8 +9,8 @@ const start = () => {
     app.listen(PORT, () =>
       console.log(
         `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow
-          .underline.bold
-      )
+          .underline.bold,
+      ),
     );
   } catch (error) {
     console.error('Database connection failed'.red.underline.bold, error);
