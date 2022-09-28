@@ -39,7 +39,7 @@ const userSchema = new Schema(
         delete ret.__v;
       },
     },
-  },
+  }
 );
 // eslint-disable-next-line func-names
 userSchema.pre('save', async function (next) {

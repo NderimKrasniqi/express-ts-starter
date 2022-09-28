@@ -7,7 +7,7 @@ export async function createHash(password: string) {
 }
 export async function compareHash(
   storedPassword: string,
-  suppliedPassword: string,
+  suppliedPassword: string
 ) {
   return bcrypt.compare(suppliedPassword, storedPassword);
 }

@@ -16,7 +16,6 @@ colors.enable();
 const app = express();
 
 app.use(morgan('dev'));
-
 app.use(helmet());
 app.disable('x-powered-by');
 app.use(cors());

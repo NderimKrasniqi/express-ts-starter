@@ -5,12 +5,14 @@ const errorHandler = (
   err: Error,
   req: Request,
   res: Response,
-  next: NextFunction,
+  next: NextFunction
 ) => {
   if (err instanceof CustomError) {
     return res.status(err.statusCode).send({ errors: err.serializeErrors() });
   }
-  return res.status(400).send({
+
+  const statusCode = 500;
+  return res.status(statusCode).send({
     errors: [{ message: 'Something went wrong' }],
   });
 };
